@@ -1,0 +1,6 @@
+adafruit-blinka
+adafruit-circuitpython-ahtx0
+adafruit-circuitpython-ads1x15
+paho-mqtt
+RPi.GPIO
+gpiozero
