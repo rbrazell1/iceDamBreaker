@@ -1,0 +1,47 @@
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.log
+*.tmp
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+
+# Local settings & secrets
+*.env
+*.ini
+config.json
+secrets.json
+credentials.*
+
+# ---- Raspberry Pi specifics ----
+# I2C / GPIO debugging files
+*.bak
+*.swp
+
+# Systemd or OS-level scripts
+*.service
+*.target
+*.socket
+
+# ---- Build / packaging ----
+build/
+dist/
+*.egg-info/
+
+# ---- Editor / IDE ----
+.vscode/
+.idea/
+*.code-workspace
+
+# ---- Misc ----
+.DS_Store
+Thumbs.db
