@@ -4,6 +4,7 @@ import adafruit_ahtx0
 import json
 import socket
 import paho.mqtt.client as mqtt
+import RPi.GPIO as GPIO
 
 i2c = board.I2C()
 sensor = adafruit_ahtx0.AHTx0(i2c)
