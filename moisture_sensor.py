@@ -11,8 +11,8 @@ from adafruit_ads1x15.analog_in import AnalogIn
 SAMPLE_COUNT = 10
 SAMPLE_DELAY = 0.03    # seconds between samples
 ADS_GAIN = 1           # 1 => +/-4.096V range (ok for 3.3V signals)
-A0_CAL_DRY = 31000     # replace after calibration (raw or voltage based)
-A0_CAL_WET = 12000
+A0_CAL_DRY = 23000     # replace after calibration (raw or voltage based)
+A0_CAL_WET = 11000
 A1_CAL_DRY = 31000
 A1_CAL_WET = 12000
 # ----------------
