@@ -21,8 +21,8 @@ i2c = busio.I2C(board.SCL, board.SDA)
 ads = ADS1115(i2c)
 ads.gain = ADS_GAIN
 
-chan0 = AnalogIn(ads, ADS1115.P0)
-chan1 = AnalogIn(ads, ADS1115.P1)
+chan0 = AnalogIn(ads, 0)
+chan1 = AnalogIn(ads, 1)
 
 def read_avg(channel, count=SAMPLE_COUNT, delay=SAMPLE_DELAY):
     total = 0
@@ -47,15 +47,15 @@ if __name__ == "__main__":
     try:
         while True:
             r0 = read_avg(chan0)
-            r1 = read_avg(chan1)
+            # r1 = read_avg(chan1)
             v0 = chan0.voltage
-            v1 = chan1.voltage
+            # v1 = chan1.voltage
 
             p0 = raw_to_percent(r0, A0_CAL_DRY, A0_CAL_WET)
-            p1 = raw_to_percent(r1, A1_CAL_DRY, A1_CAL_WET)
+            # p1 = raw_to_percent(r1, A1_CAL_DRY, A1_CAL_WET)
 
-            print(f"A0 raw={int(r0)} volt={v0:.4f} V pct={p0:.1f}% | "
-                  f"A1 raw={int(r1)} volt={v1:.4f} V pct={p1:.1f}%")
+            print(f"A0 raw={int(r0)} volt={v0:.4f} V pct={p0:.1f}% | ")
+                #   f"A1 raw={int(r1)} volt={v1:.4f} V pct={p1:.1f}%")
             time.sleep(1.0)
     except KeyboardInterrupt:
         print("Exit")
