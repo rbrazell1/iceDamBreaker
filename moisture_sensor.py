@@ -13,8 +13,8 @@ SAMPLE_DELAY = 0.03    # seconds between samples
 ADS_GAIN = 1           # 1 => +/-4.096V range (ok for 3.3V signals)
 A0_CAL_DRY = 23000     # replace after calibration (raw or voltage based)
 A0_CAL_WET = 11000
-A1_CAL_DRY = 31000
-A1_CAL_WET = 12000
+A1_CAL_DRY = 23000
+A1_CAL_WET = 11000
 # ----------------
 
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -47,15 +47,15 @@ if __name__ == "__main__":
     try:
         while True:
             r0 = read_avg(chan0)
-            # r1 = read_avg(chan1)
+            r1 = read_avg(chan1)
             v0 = chan0.voltage
-            # v1 = chan1.voltage
+            v1 = chan1.voltage
 
             p0 = raw_to_percent(r0, A0_CAL_DRY, A0_CAL_WET)
-            # p1 = raw_to_percent(r1, A1_CAL_DRY, A1_CAL_WET)
+            p1 = raw_to_percent(r1, A1_CAL_DRY, A1_CAL_WET)
 
-            print(f"A0 raw={int(r0)} volt={v0:.4f} V pct={p0:.1f}% | ")
-                #   f"A1 raw={int(r1)} volt={v1:.4f} V pct={p1:.1f}%")
+            print(f"A0 raw={int(r0)} volt={v0:.4f} V pct={p0:.1f}% | "
+                  f"A1 raw={int(r1)} volt={v1:.4f} V pct={p1:.1f}%")
             time.sleep(1.0)
     except KeyboardInterrupt:
         print("Exit")
